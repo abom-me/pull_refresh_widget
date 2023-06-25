@@ -1,7 +1,7 @@
 name: pull_refresh_widget
 description: A flutter package allows you to add pull refresh widget to your project
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://github.com/abom-me/pull_refresh_widget
 
 environment:
   sdk: '>=3.0.2 <4.0.0'

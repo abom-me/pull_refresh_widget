@@ -68,8 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-ScrollController _controller=ScrollController();
-  String text="Pull To Refresh";
+
+  ScrollController _controller = ScrollController();
+  String text = "Pull To Refresh";
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -90,33 +91,35 @@ ScrollController _controller=ScrollController();
       ),
       body: Container(
         // color: Colors.red,
-        
-    width: MediaQuery.of(context).size.width,
-    height: MediaQuery.of(context).size.height,
+
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: RefreshScrollColumn(
- 
-          
+          crossAxisAlignment: CrossAxisAlignment.center,
           controller: _controller,
-          onRefresh: () { 
+          onRefresh: () {
             print('Refreshing');
-      
+            setState(() {
+              text = 'Refreshing';
+            });
           },
-          onRefreshEnd: (){
+          onRefreshEnd: () {
             print('Refreshed');
             setState(() {
-              text='Refreshed';
+              text = 'Refreshed';
             });
           },
           children: [
-           Container(
-             alignment: Alignment.center,
-             height: 100,
-             width: 300,
-             child:  Text(text,style: TextStyle(color: Colors.red,fontSize: 30),),
-           ),
-        
+            Container(
+              alignment: Alignment.center,
+              height: 100,
+              width: 300,
+              child: Text(
+                text,
+                style: TextStyle(color: Colors.red, fontSize: 30),
+              ),
+            ),
           ],
-          
         ),
       ),
       floatingActionButton: FloatingActionButton(
